@@ -192,7 +192,7 @@ main {
 
 /* Rotate arrow + reveal content when active */
 .drink-category.active .triangle {
-  transform: rotate(180deg);
+  transform: rotate(-180deg);
 }
 
 /* ===== Dropdown content ===== */
