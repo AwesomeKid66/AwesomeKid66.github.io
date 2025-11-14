@@ -230,14 +230,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Open the first category by default and highlight its button
-  if (categories[0]) {
-    categories[0].classList.add('active');
-    if (categories[0].id) {
-      setActiveNav(categories[0].id);
-    }
-  }
-
   // Top nav buttons: scroll to section + highlight that button
   navButtons.forEach(button => {
     button.addEventListener('click', () => {
