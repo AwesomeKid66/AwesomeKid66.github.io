@@ -249,6 +249,21 @@ main {
   color: #e5e7eb;
 }
 
+.drink p.ingredients-line {
+  font-size: 0.7rem;   /* or whatever size feels right */
+  font-style: italic;
+  color: #d1d5db;
+  margin-top: 0.25rem;
+  font-family: 'Caviar Dreams', system-ui, sans-serif;
+}
+
+.drink p.ingredients-line strong {
+  color: #fde68a; /* gold-ish to match your theme */
+  font-weight: 600;
+  margin-left: 1em;
+}
+
+
 /* Off-menu note */
 .Introduction {
   font-family: 'Caviar Dreams', system-ui, sans-serif;
