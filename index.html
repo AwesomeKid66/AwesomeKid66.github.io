@@ -10,9 +10,9 @@
 
 </head>
 <body>
-  <div class="logo-container">
+  <!-- <div class="logo-container">
     <img src="images/Kickin_Santa.png" alt="Party Logo" class="logo">
-  </div>
+  </div> -->
   
   <header>
     <h1>Christmas <br>Sips & Spirits</h1>
@@ -203,7 +203,18 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const categories = document.querySelectorAll('.drink-category');
+  const categories = Array.from(document.querySelectorAll('.drink-category'));
+  const navButtons = Array.from(document.querySelectorAll('.category-nav button'));
+
+  let suppressScrollHighlight = false; // <-- ignore scroll highlight during smooth scroll
+
+  // Helper: highlight the nav button that matches a section ID
+  function setActiveNav(targetId) {
+    navButtons.forEach(btn => {
+      const t = btn.getAttribute('data-target');
+      btn.classList.toggle('active', t === targetId);
+    });
+  }
 
   // Toggle sections when their headers are tapped
   categories.forEach(section => {
@@ -212,27 +223,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
     h2.addEventListener('click', () => {
       section.classList.toggle('active');
+      const id = section.id;
+      if (id) {
+        setActiveNav(id);
+      }
     });
   });
 
-  // Open the first category by default on load
+  // Open the first category by default and highlight its button
   if (categories[0]) {
     categories[0].classList.add('active');
+    if (categories[0].id) {
+      setActiveNav(categories[0].id);
+    }
   }
 
-  // Top navigation buttons (jump to section)
-  const navButtons = document.querySelectorAll('.category-nav button');
+  // Top nav buttons: scroll to section + highlight that button
   navButtons.forEach(button => {
     button.addEventListener('click', () => {
       const targetId = button.getAttribute('data-target');
       const targetSection = document.getElementById(targetId);
       if (!targetSection) return;
 
-      targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // While we're doing a smooth scroll, don't let the scroll listener
+      // jump the highlight around.
+      suppressScrollHighlight = true;
+
+      // Make sure that section is open and highlighted
       targetSection.classList.add('active');
+      setActiveNav(targetId);
+
+      // Smooth scroll to the section
+      targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // After a short delay (when the scroll has basically finished),
+      // re-enable scroll-based highlighting.
+      setTimeout(() => {
+        suppressScrollHighlight = false;
+      }, 700); // you can tweak this if needed
     });
+  });
+
+  // While scrolling, update the highlighted nav button based on visible section
+  const offset = 120; // to account for sticky nav height
+  window.addEventListener('scroll', () => {
+    if (suppressScrollHighlight) return;  // <-- key line
+
+    const scrollPos = window.scrollY + offset;
+    let currentId = null;
+
+    for (const section of categories) {
+      const top = section.offsetTop;
+      const bottom = top + section.offsetHeight;
+      if (scrollPos >= top && scrollPos < bottom) {
+        currentId = section.id;
+        break;
+      }
+    }
+
+    if (currentId) {
+      setActiveNav(currentId);
+    }
   });
 });
 </script>
-
 

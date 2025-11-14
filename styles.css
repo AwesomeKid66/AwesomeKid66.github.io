@@ -71,14 +71,15 @@ header {
 
 header h1 {
   font-family: 'Last Christmas', system-ui, sans-serif;
-  font-size: 2.3rem;
-  line-height: 1.1;
+  font-size: 6rem;        /* Bigger title */
+  line-height: 1.05;
   color: #ffffff;
   text-shadow:
-    1px 1px 2px rgba(0, 0, 0, 0.7),
-    0 0 4px #b91c1c;
-  margin-bottom: 0.35rem;
+    1px 1px 3px rgba(0, 0, 0, 0.75),
+    0 0 6px #b91c1c;
+  margin-bottom: 0.5rem;
 }
+
 
 .mixologists {
   font-family: 'Caviar Dreams', system-ui, sans-serif;
@@ -100,7 +101,7 @@ header h1 {
 /* Larger screens */
 @media (min-width: 768px) {
   header h1 {
-    font-size: 2.9rem;
+    font-size: 3.8rem;
   }
   .mixologists {
     font-size: 1.05rem;
@@ -137,6 +138,16 @@ header h1 {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* Active/nav-highlighted button */
+.category-nav button.active {
+  background: #facc15;                 /* gold */
+  color: #052e16;                      /* dark green text */
+  border-color: #fde68a;
+  font-weight: 600;
+  box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.7);
+}
+
 
 .category-nav button:active {
   transform: scale(0.97);
@@ -185,14 +196,14 @@ main {
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
   border-top: 9px solid #fef3c7;
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
   transform-origin: 50% 50%;
   transition: transform 0.25s ease;
 }
 
 /* Rotate arrow + reveal content when active */
 .drink-category.active .triangle {
-  transform: rotate(-180deg);
+  transform: rotate(0deg);
 }
 
 /* ===== Dropdown content ===== */
