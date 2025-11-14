@@ -21,6 +21,16 @@
       <span class="mixologists-names">AJ & Brandy</span>
     </p>
   </header>
+
+  <nav class="category-nav">
+    <button type="button" data-target="specialty-drinks">Cocktails</button>
+    <button type="button" data-target="punches">Punches</button>
+    <button type="button" data-target="beers">Beers</button>
+    <button type="button" data-target="Hard_Selzter">Seltzers</button>
+    <button type="button" data-target="mixers">Mixers</button>
+    <button type="button" data-target="wines">Wines</button>
+  </nav>
+
   
   <main>
     <!-- Speciality Cocktails Section -->
@@ -192,25 +202,37 @@
 </html>
 
 <script>
-// Select all h2 tags
-const headings = document.querySelectorAll('h2');
+document.addEventListener('DOMContentLoaded', () => {
+  const categories = document.querySelectorAll('.drink-category');
 
-headings.forEach(h2 => {
-  h2.addEventListener('click', () => {
-    // Toggle the visibility of the associated dropdown content
-    const dropdownContent = h2.nextElementSibling;
-    if (dropdownContent && dropdownContent.classList.contains('dropdown-content')) {
-      dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
-      
-      // Find the parent section of the h2 and toggle the 'active' class
-      const section = h2.closest('.drink-category'); // Find the nearest section with the 'drink-category' class
-      if (section) {
-        section.classList.toggle('active');
+  // Toggle sections when their headers are tapped
+  categories.forEach(section => {
+    const h2 = section.querySelector('h2');
+    if (!h2) return;
 
-      }
-    }
+    h2.addEventListener('click', () => {
+      section.classList.toggle('active');
+    });
+  });
+
+  // Open the first category by default on load
+  if (categories[0]) {
+    categories[0].classList.add('active');
+  }
+
+  // Top navigation buttons (jump to section)
+  const navButtons = document.querySelectorAll('.category-nav button');
+  navButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const targetId = button.getAttribute('data-target');
+      const targetSection = document.getElementById(targetId);
+      if (!targetSection) return;
+
+      targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      targetSection.classList.add('active');
+    });
   });
 });
-
 </script>
+
 

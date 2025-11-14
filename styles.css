@@ -1,246 +1,293 @@
-/* General Reset */
+/* ===== Reset ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ===== Fonts ===== */
 @font-face {
   font-family: 'Last Christmas';
-  src: url('fonts/LastChristmasPERSONALUSE-Regular.woff') format('woff2'), /* Preferred format */
-       url('fonts/LastChristmasPERSONALUSE-Regular.woff') format('woff'); /* Fallback format */
+  src: url('fonts/LastChristmasPERSONALUSE-Regular.woff2') format('woff2'),
+       url('fonts/LastChristmasPERSONALUSE-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Caviar Dreams';
-  src: url('fonts/CaviarDreams.woff') format('woff2'), /* Preferred format */
-       url('fonts/CaviarDreams.woff') format('woff'); /* Fallback format */
+  src: url('fonts/CaviarDreams.woff2') format('woff2'),
+       url('fonts/CaviarDreams.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
-/* Add spacing to avoid content overlap */
-body {
-  padding-top: 4rem; /* Adjust to match the height of the nav */
-}
-
-/* Adjust Buttons for Mobile Devices - 2x2 Grid */
-@media (max-width: 768px) {
-  .fixed-nav {
-    display: grid; /* Enable grid layout */
-    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
-    gap: 0.5rem; /* Space between buttons */
-    padding: 0.5rem;
-  }
-
-  .nav-button {
-    font-size: 1.4rem; /* Larger text */
-    text-align: center; /* Center text */
-    padding: 0.7rem 0.5rem; /* Adjust padding for balance */
-  }
-}
-
-/* Fine-tune for very small screens */
-@media (max-width: 480px) {
-  .nav-button {
-    font-size: 1.1rem; /* Slightly smaller font */
-    padding: 0.5rem; /* Compact padding */
-  }
-}
-
-
-
-/* Body Styling */
-body {
-  font-family: 'Merriweather', serif;
-  line-height: 1.6;
-  color: #fff;
-  background: linear-gradient(to bottom, #4e0000, #800000);
-  padding: 1rem;
-}
+/* ===== Base Layout (Phone-first) ===== */
 
 body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  background: url('images/Holidays-at-the-Magic-Kingdom_Full_57965.webp') no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-  position: relative;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
+  background-color: #041814;           /* Deep green, simple background */
+  color: #f9fafb;
+  padding: 1rem 0.75rem 2rem;
 }
 
-body::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9); /* Darker overlay */
-  z-index: -1; /* Keep it behind the text */
+/* Center the main blocks and limit line length */
+body > .logo-container,
+body > header,
+body > .category-nav,
+body > main,
+body > footer {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Logo Styling */
+/* ===== Logo ===== */
+
 .logo-container {
   text-align: center;
-  margin-bottom: -3.0rem; /* Space between logo and header */
-}
-
-@media (max-width: 768px) {
-  .logo-container {
-    text-align: center;
-    margin-bottom: -6.0 rem; /* Space between logo and header for mobile */
-  }
+  margin-bottom: 0.5rem;
 }
 
 .logo {
-  width: 400px; /* Adjust size of the logo */
+  max-width: 220px;
+  width: 80%;
   height: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .logo {
-    width: 95%; /* Smaller size for mobile devices */
-    max-width: 400px;
-    height: auto
+    max-width: 170px;
   }
 }
 
-/* Header Styling */
+/* ===== Header ===== */
+
 header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0.9rem;
 }
 
 header h1 {
-  font-family: 'Last Christmas', sans-serif;
-  font-size: 3.5rem;
-  color: #fff; /* A golden yellow for the main text */
-  text-align: center;
-  text-shadow: 
-    1px 1px 3px rgba(0, 0, 0, 0.6), /* Soft black shadow for better contrast */
-    0 0 5px #ff0000,  /* Soft red glow */
-    0 0 10px #ff0000,  /* Slightly stronger red glow */
-    0 0 15px #00b300;  /* Very subtle green glow */
-  font-weight: bold; /* Bold text for emphasis */
+  font-family: 'Last Christmas', system-ui, sans-serif;
+  font-size: 2.3rem;
+  line-height: 1.1;
+  color: #ffffff;
+  text-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.7),
+    0 0 4px #b91c1c;
+  margin-bottom: 0.35rem;
 }
 
-/* Style for the Mixologists section */
 .mixologists {
-  font-family: 'Caviar Dreams';
-  text-align: center; /* Center the text */
-  color: #ffcc00;
-  margin-top: 1rem; /* Add space above */
-  margin-bottom: 1rem; /* Add space below */
-  font-size: 1.6rem;
-  font-weight: bold;
+  font-family: 'Caviar Dreams', system-ui, sans-serif;
+  font-size: 0.95rem;
+  color: #facc15;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .mixologists {
-    font-size: 1.2rem; /* Adjust title size for  smaller screens */ 
-  }
+.mixologists-title {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  opacity: 0.9;
 }
 
-/* Styling for the introduction paragraph */
-.Introduction {
-  font-size: 1.2rem;
-  font-family: 'Caviar Dreams';
-  color: #f5f5dc;
-  text-align: center;
-  margin-top: 1.5rem;
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.5); /* Slightly dark background for contrast */
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+.mixologists-names {
+  font-size: 1.05rem;
 }
 
-
-/* Drink Categories */
-.drink-category {
-  margin-bottom: 2rem;
-}
-
-.drink-category h2 {
-  font-size: 2.5rem;
-  font-family: 'Last Christmas', sans-serif;
-  color: rgba(102, 204, 102, 1); /* section headers */
-  text-align: center;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #ffcc00;
-  padding-bottom: 0.5rem;
-}
-
-.NA {
-  font-size: 1.5rem;
-}
-
-/* Drink Items */
-.drink {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.drink h3 {
-  font-size: 2.0rem;
-  font-family: 'Caviar Dreams';
-  color: #ff0000; /* drink titles */
-}
-
-.drink p {
-  font-family: 'Caviar Dreams';
-  font-size: 1rem;
-  color: #f5f5dc; /* descriptions */
-}
-
-/* Footer */
-footer {
-  font-family: 'Caviar Dreams';
-  text-align: center;
-  margin-top: 2rem;
-  font-size: 1.6rem;
-  color: #ffd966;
-}
-
-/* Responsive Design */
+/* Larger screens */
 @media (min-width: 768px) {
-  body {
-    max-width: 700px;
-    margin: 0 auto;
+  header h1 {
+    font-size: 2.9rem;
+  }
+  .mixologists {
+    font-size: 1.05rem;
   }
 }
 
-/* Style for the dropdown content */
-.dropdown-content {
-  display: none; /* Hidden by default */
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 1rem;
-  margin-top: 0.5rem;
-  border-radius: 12px;
+/* ===== Top Category Nav ===== */
+
+.category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  position: sticky;
+  top: 0;
+  padding: 0.4rem 0 0.6rem;
+  background: linear-gradient(to bottom, #041814, rgba(4, 24, 20, 0.9));
+  z-index: 5;
 }
 
+.category-nav button {
+  flex: 1 1 calc(33.33% - 0.4rem);
+  min-width: 0;
+  border: 1px solid rgba(45, 212, 191, 0.7);
+  background: rgba(6, 78, 59, 0.95);
+  color: #ecfeff;
+  font-family: 'Caviar Dreams', system-ui, sans-serif;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.25rem;
+  border-radius: 999px;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.category-nav button:active {
+  transform: scale(0.97);
+}
+
+/* ===== Sections / Categories ===== */
+
+main {
+  margin-top: 0.25rem;
+}
+
+.drink-category {
+  margin-bottom: 0.7rem;
+}
+
+/* Header bar for each category */
+.drink-category h2 {
+  font-family: 'Last Christmas', system-ui, sans-serif;
+  font-size: 1.3rem;
+  background: #0f766e;
+  color: #ffffff;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(15, 118, 110, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+/* Non-alcoholic subtitle under Punches */
+.NA {
+  font-family: 'Caviar Dreams', system-ui, sans-serif;
+  font-size: 0.83rem;
+  font-weight: normal;
+  color: #fef9c3;
+}
+
+/* Triangle caret icon */
 .triangle {
-  display: inline-block;
+  flex-shrink: 0;
   width: 0;
   height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-bottom: 20px solid rgba(102, 204, 102, 1); /* Replace with your desired color */
+  border-top: 9px solid #fef3c7;
   transform: rotate(90deg);
-  margin-left: 20px;
-  transform-origin: 50% 66%;
-  transition: ease 0.5s;
+  transform-origin: 50% 50%;
+  transition: transform 0.25s ease;
 }
 
+/* Rotate arrow + reveal content when active */
 .drink-category.active .triangle {
   transform: rotate(180deg);
-  transition: ease 0.5s;
 }
 
+/* ===== Dropdown content ===== */
 
+.dropdown-content {
+  display: none;
+  background-color: #062925;
+  padding: 0.6rem 0.75rem 0.75rem;
+  margin-top: 0.45rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(15, 118, 110, 0.4);
+}
+
+.drink-category.active .dropdown-content {
+  display: block;
+}
+
+/* ===== Drink items ===== */
+
+.drink {
+  background: rgba(15, 23, 42, 0.7);
+  padding: 0.6rem 0.7rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.65rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.drink:last-child {
+  margin-bottom: 0;
+}
+
+.drink h3 {
+  font-family: 'Caviar Dreams', system-ui, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f97373;
+  margin-bottom: 0.25rem;
+}
+
+.drink p {
+  font-family: 'Caviar Dreams', system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+
+/* Off-menu note */
+.Introduction {
+  font-family: 'Caviar Dreams', system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: #fef3c7;
+  text-align: center;
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed rgba(252, 211, 77, 0.7);
+}
+
+/* ===== Footer ===== */
+
+footer {
+  font-family: 'Caviar Dreams', system-ui, sans-serif;
+  text-align: center;
+  margin-top: 1.3rem;
+  font-size: 0.95rem;
+  color: #fde68a;
+  opacity: 0.9;
+}
+
+/* ===== Tablet / Desktop tweaks ===== */
+
+@media (min-width: 768px) {
+  body {
+    padding: 1.4rem 1rem 2.4rem;
+  }
+
+  .category-nav button {
+    font-size: 0.85rem;
+    padding: 0.45rem 0.4rem;
+  }
+
+  .drink-category h2 {
+    font-size: 1.5rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .drink {
+    padding: 0.7rem 0.9rem;
+  }
+
+  .drink h3 {
+    font-size: 1.15rem;
+  }
+
+  .drink p,
+  .Introduction,
+  footer {
+    font-size: 1rem;
+  }
+}
