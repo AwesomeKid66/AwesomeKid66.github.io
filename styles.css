@@ -27,8 +27,8 @@
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.5;
-  background-color: #041814;           /* Deep green, simple background */
-  color: #f9fafb;
+  background: #031f13; /* Deep evergreen */
+  color: #f1f5f9;      /* Snow text */
   padding: 1rem 0.75rem 2rem;
 }
 
@@ -118,16 +118,16 @@ header h1 {
   position: sticky;
   top: 0;
   padding: 0.4rem 0 0.6rem;
-  background: linear-gradient(to bottom, #041814, rgba(4, 24, 20, 0.9));
+  background: linear-gradient(to bottom, #06341f, rgba(6, 52, 31, 0.92));
   z-index: 5;
 }
 
 .category-nav button {
   flex: 1 1 calc(33.33% - 0.4rem);
   min-width: 0;
-  border: 1px solid rgba(45, 212, 191, 0.7);
-  background: rgba(6, 78, 59, 0.95);
-  color: #ecfeff;
+  background: #14532d; /* Forest green */
+  border: 1px solid #22c55e; /* Lighter green border */
+  color: #e8fae6; 
   font-family: 'Caviar Dreams', system-ui, sans-serif;
   font-size: 0.8rem;
   padding: 0.35rem 0.25rem;
@@ -141,11 +141,11 @@ header h1 {
 
 /* Active/nav-highlighted button */
 .category-nav button.active {
-  background: #facc15;                 /* gold */
-  color: #052e16;                      /* dark green text */
-  border-color: #fde68a;
+  background: #facc15;   /* Gold highlight */
+  color: #4a2e00;        /* Dark warm brown text */
+  border-color: #fde047;
+  box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.4);
   font-weight: 600;
-  box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.7);
 }
 
 
@@ -167,17 +167,17 @@ main {
 .drink-category h2 {
   font-family: 'Last Christmas', system-ui, sans-serif;
   font-size: 1.3rem;
-  background: #0f766e;
-  color: #ffffff;
+  background: #7f0f0f; /* Christmas red */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
   padding: 0.7rem 0.9rem;
   border-radius: 0.75rem;
-  border: 1px solid rgba(15, 118, 110, 0.7);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
   cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
 }
 
 /* Non-alcoholic subtitle under Punches */
@@ -185,7 +185,7 @@ main {
   font-family: 'Caviar Dreams', system-ui, sans-serif;
   font-size: 0.83rem;
   font-weight: normal;
-  color: #fef9c3;
+  color: #fde68a; /* gold */
 }
 
 /* Triangle caret icon */
@@ -195,7 +195,7 @@ main {
   height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-top: 9px solid #fef3c7;
+  border-top-color: #fde68a; /* gold arrow */
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
   transition: transform 0.25s ease;
@@ -214,7 +214,8 @@ main {
   padding: 0.6rem 0.75rem 0.75rem;
   margin-top: 0.45rem;
   border-radius: 0.75rem;
-  border: 1px solid rgba(15, 118, 110, 0.4);
+  background: rgba(32, 52, 44, 0.55); /* frosted deep green */
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .drink-category.active .dropdown-content {
@@ -224,11 +225,12 @@ main {
 /* ===== Drink items ===== */
 
 .drink {
-  background: rgba(15, 23, 42, 0.7);
+  background: rgba(12, 20, 36, 0.55); /* frosted navy */
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.35);
   padding: 0.6rem 0.7rem;
   margin-bottom: 0.5rem;
   border-radius: 0.65rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
 }
 
 .drink:last-child {
@@ -239,26 +241,26 @@ main {
   font-family: 'Caviar Dreams', system-ui, sans-serif;
   font-size: 1.05rem;
   font-weight: 600;
-  color: #f97373;
+  color: #fda4af; /* rose gold-pink */
   margin-bottom: 0.25rem;
 }
 
 .drink p {
   font-family: 'Caviar Dreams', system-ui, sans-serif;
   font-size: 0.9rem;
-  color: #e5e7eb;
+  color: #cbd5e1; /* silver blue */
 }
 
 .drink p.ingredients-line {
   font-size: 0.7rem;   /* or whatever size feels right */
   font-style: italic;
-  color: #d1d5db;
+  color: #d6e2ee; /* soft icy grey */
   margin-top: 0.25rem;
   font-family: 'Caviar Dreams', system-ui, sans-serif;
 }
 
 .drink p.ingredients-line strong {
-  color: #fde68a; /* gold-ish to match your theme */
+  color: #fcd34d; /* gold */
   font-weight: 600;
   margin-left: 1em;
 }
@@ -268,11 +270,11 @@ main {
 .Introduction {
   font-family: 'Caviar Dreams', system-ui, sans-serif;
   font-size: 0.9rem;
-  color: #fef3c7;
+  color: #fff7c2;
+  border-top: 1px dashed rgba(254, 240, 138, 0.7);
   text-align: center;
   margin-top: 0.75rem;
   padding-top: 0.5rem;
-  border-top: 1px dashed rgba(252, 211, 77, 0.7);
 }
 
 /* ===== Footer ===== */
@@ -282,7 +284,7 @@ footer {
   text-align: center;
   margin-top: 1.3rem;
   font-size: 0.95rem;
-  color: #fde68a;
+  color: #fef3c7; /* soft gold */
   opacity: 0.9;
 }
 
