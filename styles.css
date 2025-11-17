@@ -22,6 +22,10 @@
   font-style: normal;
 }
 
+html {
+  scroll-padding-top: 70px; /* height of your sticky nav */
+}
+
 /* ===== Base Layout (Phone-first) ===== */
 
 body {
@@ -160,13 +164,13 @@ main {
 }
 
 .drink-category {
-  margin-bottom: 0.7rem;
+  margin-bottom: 1.2rem;
 }
 
 /* Header bar for each category */
 .drink-category h2 {
   font-family: 'Last Christmas', system-ui, sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   background: #7f0f0f; /* Christmas red */
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #fff;
@@ -183,9 +187,9 @@ main {
 /* Non-alcoholic subtitle under Punches */
 .NA {
   font-family: 'Caviar Dreams', system-ui, sans-serif;
-  font-size: 1.0rem;
-  font-weight: normal;
-  color: #fde68a; /* gold */
+  font-size: 0.8rem;
+  color: #fde68a;
+  margin-left: 0.25rem; /* small space between Punches and NA */
 }
 
 /* Triangle caret icon */
@@ -195,7 +199,7 @@ main {
   height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-top-color: #fde68a; /* gold arrow */
+  border-top: 9px solid #fde68a; /* gold arrow */
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
   transition: transform 0.25s ease;
@@ -220,6 +224,13 @@ main {
 
 .drink-category.active .dropdown-content {
   display: block;
+}
+
+.drink-category h2 p {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem; /* space between emoji and text */
+  flex-wrap: wrap; /* allows NA to wrap naturally on very small phones */
 }
 
 /* ===== Drink items ===== */
@@ -283,7 +294,7 @@ footer {
   font-family: 'Caviar Dreams', system-ui, sans-serif;
   text-align: center;
   margin-top: 1.3rem;
-  font-size: 0.95rem;
+  font-size: 2.00rem;
   color: #fef3c7; /* soft gold */
   opacity: 0.9;
 }
