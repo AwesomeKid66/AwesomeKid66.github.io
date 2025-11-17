@@ -76,26 +76,26 @@ header h1 {
   color: #ffffff;
   text-shadow:
     1px 1px 3px rgba(0, 0, 0, 0.75),
-    0 0 6px #b91c1c;
+    0 0 20px #b91c1c;
   margin-bottom: 0.5rem;
 }
 
 
 .mixologists {
   font-family: 'Caviar Dreams', system-ui, sans-serif;
-  font-size: 0.95rem;
+  font-size: 1.0rem;
   color: #facc15;
 }
 
 .mixologists-title {
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 0.82rem;
+  font-size: 1.0rem;
   opacity: 0.9;
 }
 
 .mixologists-names {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
 }
 
 /* Larger screens */
@@ -129,7 +129,7 @@ header h1 {
   border: 1px solid #22c55e; /* Lighter green border */
   color: #e8fae6; 
   font-family: 'Caviar Dreams', system-ui, sans-serif;
-  font-size: 0.8rem;
+  font-size: 1.0rem;
   padding: 0.35rem 0.25rem;
   border-radius: 999px;
   cursor: pointer;
@@ -166,7 +166,7 @@ main {
 /* Header bar for each category */
 .drink-category h2 {
   font-family: 'Last Christmas', system-ui, sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   background: #7f0f0f; /* Christmas red */
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #fff;
@@ -176,14 +176,14 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  /* gap: 0.5rem; */
   cursor: pointer;
 }
 
 /* Non-alcoholic subtitle under Punches */
 .NA {
   font-family: 'Caviar Dreams', system-ui, sans-serif;
-  font-size: 0.83rem;
+  font-size: 1.0rem;
   font-weight: normal;
   color: #fde68a; /* gold */
 }

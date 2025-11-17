@@ -72,7 +72,7 @@
 
     <!-- Punches Section -->
     <section class="drink-category" id="punches">
-      <h2>Punches<span class="NA"><br>( Non - Alcoholic)</span><span class="triangle"></span></h2>
+      <h2>Punches<span class="NA">(Non - Alcoholic)</span><span class="triangle"></span></h2>
       <div class="dropdown-content">
         <div class="drink">
           <h3>Brown Sugar & Cinnamon Apple Cider</h3>
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const categories = Array.from(document.querySelectorAll('.drink-category'));
   const navButtons = Array.from(document.querySelectorAll('.category-nav button'));
 
-  let suppressScrollHighlight = false; // <-- ignore scroll highlight during smooth scroll
+  let suppressScrollHighlight = false; // ignore scroll highlight during smooth scroll from nav
 
   // Helper: highlight the nav button that matches a section ID
   function setActiveNav(targetId) {
@@ -231,6 +231,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Open the first category by default and highlight its button
+  if (categories[0]) {
+    categories[0].classList.add('active');
+    if (categories[0].id) {
+      setActiveNav(categories[0].id);
+    }
+  }
+
   // Top nav buttons: scroll to section + highlight that button
   navButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -238,39 +246,50 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetSection = document.getElementById(targetId);
       if (!targetSection) return;
 
-      // While we're doing a smooth scroll, don't let the scroll listener
-      // jump the highlight around.
-      suppressScrollHighlight = true;
+      suppressScrollHighlight = true; // don't let scroll fight the highlight
 
-      // Make sure that section is open and highlighted
-      targetSection.classList.add('active');
+      targetSection.classList.add('active'); // make sure it's open
       setActiveNav(targetId);
 
-      // Smooth scroll to the section
       targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-      // After a short delay (when the scroll has basically finished),
-      // re-enable scroll-based highlighting.
+      // Re-enable scroll-based highlighting after the smooth scroll is basically done
       setTimeout(() => {
         suppressScrollHighlight = false;
-      }, 700); // you can tweak this if needed
+      }, 700); // tweak if you ever change scroll speed
     });
   });
 
-  // While scrolling, update the highlighted nav button based on visible section
-  const offset = 120; // to account for sticky nav height
+  // While scrolling, update which nav button is active
   window.addEventListener('scroll', () => {
-    if (suppressScrollHighlight) return;  // <-- key line
+    if (suppressScrollHighlight) return;
 
-    const scrollPos = window.scrollY + offset;
+    const viewportCenter = window.innerHeight / 2; // middle of the screen
+
+    const doc = document.documentElement;
+    const scrollBottom = window.scrollY + window.innerHeight;
+    const docHeight = doc.scrollHeight;
+    const bottomThreshold = 40; // px from absolute bottom we consider "at the bottom"
+
     let currentId = null;
 
-    for (const section of categories) {
-      const top = section.offsetTop;
-      const bottom = top + section.offsetHeight;
-      if (scrollPos >= top && scrollPos < bottom) {
-        currentId = section.id;
-        break;
+    // If we're at (or very near) the bottom, force the last section as active
+    if (docHeight - scrollBottom < bottomThreshold) {
+      const lastSection = categories[categories.length - 1];
+      if (lastSection && lastSection.id) {
+        currentId = lastSection.id;
+      }
+    } else {
+      // Normal behavior: use whichever section crosses the middle of the screen
+      for (const section of categories) {
+        const rect = section.getBoundingClientRect();
+        const sectionTop = rect.top;
+        const sectionBottom = rect.bottom;
+
+        if (sectionTop <= viewportCenter && sectionBottom >= viewportCenter) {
+          currentId = section.id;
+          break;
+        }
       }
     }
 
@@ -280,4 +299,3 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
-
