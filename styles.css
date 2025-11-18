@@ -122,7 +122,6 @@ header h1 {
   position: sticky;
   top: 0;
   padding: 0.4rem 0 0.6rem;
-  background: linear-gradient(to bottom, #06341f, rgba(6, 52, 31, 0.92));
   z-index: 5;
 }
 
@@ -290,13 +289,17 @@ main {
 
 /* ===== Footer ===== */
 
-footer {
+.main{
   font-family: 'Caviar Dreams', system-ui, sans-serif;
   text-align: center;
   margin-top: 1.3rem;
   font-size: 2.00rem;
   color: #fef3c7; /* soft gold */
   opacity: 0.9;
+}
+
+.family-name {
+  font-family: 'Last Christmas', system-ui, sans-serif;
 }
 
 /* ===== Tablet / Desktop tweaks ===== */
