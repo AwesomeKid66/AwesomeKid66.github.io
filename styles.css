@@ -144,6 +144,14 @@ header h1 {
     0 0 10px rgba(250, 204, 21, 0.7);
   transition: box-shadow 0.25s ease;
 }
+/* Highlight style for the "roulette" rolling effect */
+.drink.rolling-choice {
+  box-shadow:
+    0 0 0 2px #bfdbfe,
+    0 0 10px rgba(191, 219, 254, 0.8);
+  transition: box-shadow 0.08s ease;
+}
+
 
 
 /* ===== Top Category Nav ===== */

@@ -286,46 +286,105 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // "Surprise Me" random cocktail button
+  // "Surprise Me" random cocktail button with roulette-style flashing + slowdown + final triple flash
   const randomBtn = document.getElementById('random-cocktail-btn');
+  let isRolling = false;
+
   if (randomBtn) {
     randomBtn.addEventListener('click', () => {
+      if (isRolling) return; // ignore extra clicks while rolling
+
       const cocktailsSection = document.getElementById('specialty-drinks');
       if (!cocktailsSection) return;
 
       const drinks = cocktailsSection.querySelectorAll('.drink');
       if (!drinks.length) return;
 
-      // Pick a random drink
-      const randomIndex = Math.floor(Math.random() * drinks.length);
-      const chosen = drinks[randomIndex];
+      isRolling = true;
+      suppressScrollHighlight = true;
 
-      // Make sure cocktails section is open and highlight that nav button
+      // Make sure cocktails is open + nav highlighted
       cocktailsSection.classList.add('active');
       setActiveNav('specialty-drinks');
 
-      // Clear any previous highlight
+      // Center the cocktails section before starting roulette
+      cocktailsSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // Clear previous highlights/rolling
       document
-        .querySelectorAll('.drink.highlight-choice')
-        .forEach(el => el.classList.remove('highlight-choice'));
+        .querySelectorAll('.drink.highlight-choice, .drink.rolling-choice')
+        .forEach(el => {
+          el.classList.remove('highlight-choice', 'rolling-choice');
+        });
 
-      // Suppress scroll highlight while we move
-      suppressScrollHighlight = true;
+      let currentIndex = -1;
+      let ticks = 0;
+      const totalTicks = 18;      // total flashes
+      const slowCount = 3;        // last N flashes slower
+      const fastDelay = 90;       // ms at start
+      const slowDelay = 300;      // ms for slowdown
+      const slowStart = totalTicks - slowCount;
 
-      // Add highlight class and scroll to the chosen drink
-      chosen.classList.add('highlight-choice');
-      chosen.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      function spin() {
+        // Remove previous rolling highlight
+        if (currentIndex >= 0) {
+          drinks[currentIndex].classList.remove('rolling-choice');
+        }
 
-      // After scroll finishes, re-enable scroll-based highlighting
-      setTimeout(() => {
-        suppressScrollHighlight = false;
-        // Let the highlight glow fade after a bit
-        setTimeout(() => {
-          chosen.classList.remove('highlight-choice');
-        }, 1000);
-      }, 800);
+        // Pick a new random drink for the flash
+        currentIndex = Math.floor(Math.random() * drinks.length);
+        drinks[currentIndex].classList.add('rolling-choice');
+
+        ticks++;
+
+        // If we reached the end, finalize the chosen drink
+        if (ticks >= totalTicks) {
+          const finalDrink = drinks[currentIndex];
+
+          // Stop rolling highlight
+          finalDrink.classList.remove('rolling-choice');
+
+          // Scroll the chosen drink into view
+          finalDrink.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+          // 🔥 NEW — triple final flash
+          let flashCount = 0;
+          function tripleFlash() {
+            flashCount++;
+
+            // toggle highlight on/off
+            finalDrink.classList.toggle('highlight-choice');
+
+            if (flashCount < 6) {
+              // 6 toggles = 3 full flashes
+              setTimeout(tripleFlash, 180);
+            } else {
+              // keep it highlighted for a few seconds
+              finalDrink.classList.add('highlight-choice');
+
+              setTimeout(() => {
+                // fade the highlight
+                finalDrink.classList.remove('highlight-choice');
+                suppressScrollHighlight = false;
+                isRolling = false;
+              }, 1000); // stays highlighted for ~2.5 seconds
+            }
+          }
+
+          tripleFlash();
+          return;
+        }
+
+        // Pick delay based on whether we're in slowdown
+        const delay = (ticks >= slowStart) ? slowDelay : fastDelay;
+        setTimeout(spin, delay);
+      }
+
+      // Start the roulette
+      spin();
     });
   }
+
 
 
   // While scrolling, update which nav button is active
