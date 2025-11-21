@@ -23,12 +23,20 @@
   </header>
 
   <nav class="category-nav">
-    <button type="button" data-target="specialty-drinks">Cocktails 🍸</button>
-    <button type="button" data-target="punches">Non-Alcoholic Drinks 🥤</button>
-    <button type="button" data-target="beers">Beers 🍺</button>
-    <button type="button" data-target="Hard_Selzter">Seltzers ✨</button>
-    <button type="button" data-target="mixers">Mixers 🧪</button>
-    <button type="button" data-target="wines">Wines 🍷</button>
+    <!-- Row 1: Centered Surprise Me -->
+    <div class="nav-top-row">
+      <button type="button" id="random-cocktail-btn">🎲 Surprise Cocktail!</button>
+    </div>
+
+    <!-- Row 2–3: The 6 regular category buttons -->
+    <div class="nav-button-grid">
+      <button type="button" data-target="specialty-drinks">🍸 Cocktails</button>
+      <button type="button" data-target="punches">🫗 Punches</button>
+      <button type="button" data-target="beers">🍺 Beers</button>
+      <button type="button" data-target="Hard_Selzter">🫧 Seltzers</button>
+      <button type="button" data-target="mixers">⚗️ Mixers</button>
+      <button type="button" data-target="wines">🍷 Wines</button>
+    </div>
   </nav>
 
   
@@ -37,6 +45,10 @@
     <section class="drink-category" id="specialty-drinks">
       <h2>Specialty Cocktails<span class="triangle"></span></h2>
       <div class="dropdown-content">
+        <div class="drink">
+          <h3>Custom Cocktail</h3>
+          <p>Ask the bartenders to make you a speciality cocktail not on the menu, custom tailored to you </p>
+        </div>
         <div class="drink">
           <h3>Blackberry Gimlet</h3>
           <p>A burst of festive berry joy, with a zesty lime twist to make your holiday spirits bright!</p>
@@ -67,9 +79,6 @@
           <p>A warm, spiced twist on a classic, perfect for adding some holiday cheer to your glass!</p>
           <p class="ingredients-line"><strong>Ingredients:</strong> vodka, peppermint schnapps, crème de cacao, cream</p>
         </div>
-        <p class="Introduction">
-          Off-menu and custom cocktails available
-        </p>
       </div>
     </section>
 
@@ -157,7 +166,7 @@
 
     <!-- Mixers Section -->
     <section class="drink-category" id="mixers">
-      <h2>Sodas & Mixers<span class="triangle"></span></h2>
+      <h2>Sodas<span class="triangle"></span></h2>
       <div class="dropdown-content">
         <div class="drink">
           <h3>Coke</h3>
@@ -218,10 +227,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let suppressScrollHighlight = false; // ignore scroll highlight during smooth scroll from nav
 
   // Helper: highlight the nav button that matches a section ID
+  // If targetId is null/undefined, this clears all highlights
   function setActiveNav(targetId) {
     navButtons.forEach(btn => {
       const t = btn.getAttribute('data-target');
-      btn.classList.toggle('active', t === targetId);
+      btn.classList.toggle('active', targetId && t === targetId);
     });
   }
 
@@ -231,10 +241,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!h2) return;
 
     h2.addEventListener('click', () => {
-      section.classList.toggle('active');
+      const nowActive = section.classList.toggle('active');
       const id = section.id;
-      if (id) {
+
+      if (nowActive && id) {
+        // This section was just opened
         setActiveNav(id);
+      } else {
+        // This section was just closed; if no sections are open, clear all highlights
+        const anyActive = categories.some(sec => sec.classList.contains('active'));
+        if (!anyActive) {
+          setActiveNav(null);
+        }
       }
     });
   });
@@ -268,9 +286,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // "Surprise Me" random cocktail button
+  const randomBtn = document.getElementById('random-cocktail-btn');
+  if (randomBtn) {
+    randomBtn.addEventListener('click', () => {
+      const cocktailsSection = document.getElementById('specialty-drinks');
+      if (!cocktailsSection) return;
+
+      const drinks = cocktailsSection.querySelectorAll('.drink');
+      if (!drinks.length) return;
+
+      // Pick a random drink
+      const randomIndex = Math.floor(Math.random() * drinks.length);
+      const chosen = drinks[randomIndex];
+
+      // Make sure cocktails section is open and highlight that nav button
+      cocktailsSection.classList.add('active');
+      setActiveNav('specialty-drinks');
+
+      // Clear any previous highlight
+      document
+        .querySelectorAll('.drink.highlight-choice')
+        .forEach(el => el.classList.remove('highlight-choice'));
+
+      // Suppress scroll highlight while we move
+      suppressScrollHighlight = true;
+
+      // Add highlight class and scroll to the chosen drink
+      chosen.classList.add('highlight-choice');
+      chosen.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // After scroll finishes, re-enable scroll-based highlighting
+      setTimeout(() => {
+        suppressScrollHighlight = false;
+        // Let the highlight glow fade after a bit
+        setTimeout(() => {
+          chosen.classList.remove('highlight-choice');
+        }, 1000);
+      }, 800);
+    });
+  }
+
+
   // While scrolling, update which nav button is active
   window.addEventListener('scroll', () => {
     if (suppressScrollHighlight) return;
+
+    const anyActive = categories.some(sec => sec.classList.contains('active'));
+    if (!anyActive) {
+      // No open dropdowns -> no highlighted buttons
+      setActiveNav(null);
+      return;
+    }
 
     const viewportCenter = window.innerHeight / 2; // middle of the screen
 
