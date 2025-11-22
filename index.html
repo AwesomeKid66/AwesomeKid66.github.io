@@ -290,7 +290,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const cocktailsSection = document.getElementById('specialty-drinks');
       if (!cocktailsSection) return;
 
-      const drinks = cocktailsSection.querySelectorAll('.drink');
+      // 🔥 Build list of drinks, EXCLUDING "Custom Cocktail"
+      const allDrinks = Array.from(cocktailsSection.querySelectorAll('.drink'));
+      const drinks = allDrinks.filter(drink => {
+        const titleEl = drink.querySelector('h3');
+        const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+        return !title.includes('custom cocktail'); // exclude that one
+      });
+
       if (!drinks.length) return;
 
       isRolling = true;
