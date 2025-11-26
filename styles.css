@@ -325,6 +325,9 @@ main {
   font-family: 'Caviar Dreams', system-ui, sans-serif;
   font-size: 0.9rem;
   color: #cbd5e1; /* silver blue */
+}
+
+#beers .drink p {
   text-indent: -1.2em;      /* pulls the first line left */
   padding-left: 1.2em;      /* pushes all lines right */
   line-height: 1.4;         /* optional: nicer spacing */
@@ -394,12 +397,6 @@ main {
 
   .drink h3 {
     font-size: 1.15rem;
-  }
-
-  .drink p {
-    text-indent: -1.2em;      /* pulls the first line left */
-    padding-left: 1.2em;      /* pushes all lines right */
-    line-height: 1.4;         /* optional: nicer spacing */
   }
 
 
