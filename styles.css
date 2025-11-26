@@ -1,11 +1,15 @@
-/* ===== Reset ===== */
+/* =========================
+   Reset
+   ========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===== Fonts ===== */
+/* =========================
+   Fonts
+   ========================= */
 @font-face {
   font-family: 'Last Christmas';
   src: url('fonts/LastChristmasPERSONALUSE-Regular.woff2') format('woff2'),
@@ -22,11 +26,12 @@
   font-style: normal;
 }
 
+/* =========================
+   Base Layout (Phone-first)
+   ========================= */
 html {
-  scroll-padding-top: 70px; /* height of your sticky nav */
+  scroll-padding-top: 70px; /* height of sticky nav */
 }
-
-/* ===== Base Layout (Phone-first) ===== */
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -36,7 +41,7 @@ body {
   padding: 1rem 0.75rem 2rem;
 }
 
-/* Center the main blocks and limit line length */
+/* Center main content blocks and limit line length */
 body > .logo-container,
 body > header,
 body > .category-nav,
@@ -47,8 +52,9 @@ body > footer {
   margin-right: auto;
 }
 
-/* ===== Logo ===== */
-
+/* =========================
+   Logo
+   ========================= */
 .logo-container {
   text-align: center;
   margin-bottom: 0.5rem;
@@ -66,8 +72,9 @@ body > footer {
   }
 }
 
-/* ===== Header ===== */
-
+/* =========================
+   Header / Title / Mixologists
+   ========================= */
 header {
   text-align: center;
   margin-bottom: 0.9rem;
@@ -75,7 +82,7 @@ header {
 
 header h1 {
   font-family: 'Last Christmas', system-ui, sans-serif;
-  font-size: 6rem;        /* Bigger title */
+  font-size: 6rem;
   line-height: 1.05;
   color: #ffffff;
   text-shadow:
@@ -84,10 +91,9 @@ header h1 {
   margin-bottom: 0.5rem;
 }
 
-
 .mixologists {
   font-family: 'Caviar Dreams', system-ui, sans-serif;
-  font-size: 1.0rem;
+  font-size: 1rem;
   color: #facc15;
   margin-top: 2rem;
 }
@@ -95,7 +101,7 @@ header h1 {
 .mixologists-title {
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 1.0rem;
+  font-size: 1rem;
   opacity: 0.9;
 }
 
@@ -108,13 +114,15 @@ header h1 {
   header h1 {
     font-size: 3.8rem;
   }
+
   .mixologists {
     font-size: 1.05rem;
   }
 }
 
-
-/* ===== Random Picker Button ===== */
+/* =========================
+   Random Picker (separate block)
+   ========================= */
 .random-picker {
   max-width: 620px;
   margin: 0 auto 0.6rem;
@@ -144,6 +152,7 @@ header h1 {
     0 0 10px rgba(250, 204, 21, 0.7);
   transition: box-shadow 0.25s ease;
 }
+
 /* Highlight style for the "roulette" rolling effect */
 .drink.rolling-choice {
   box-shadow:
@@ -152,10 +161,9 @@ header h1 {
   transition: box-shadow 0.08s ease;
 }
 
-
-
-/* ===== Top Category Nav ===== */
-
+/* =========================
+   Top Category Nav
+   ========================= */
 .category-nav {
   display: flex;
   flex-wrap: wrap;
@@ -178,7 +186,7 @@ header h1 {
 
 /* Centered Surprise Me button */
 .nav-top-row button {
-  flex: 0 1 auto; 
+  flex: 0 1 auto;
   padding: 0.45rem 1rem;
   border-radius: 999px;
   background: #7f0f0f;
@@ -188,7 +196,7 @@ header h1 {
   font-family: 'Caviar Dreams', system-ui, sans-serif;
 }
 
-/* Grid of 6 regular category buttons (same as before) */
+/* Grid of 6 regular category buttons */
 .nav-button-grid {
   display: flex;
   flex-wrap: wrap;
@@ -212,7 +220,7 @@ header h1 {
   text-overflow: ellipsis;
 }
 
-/* Active state for the grid buttons (unchanged) */
+/* Active state for grid buttons */
 .nav-button-grid button.active {
   background: #facc15;
   color: #4a2e00;
@@ -220,10 +228,9 @@ header h1 {
   box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.4);
 }
 
-
-
-/* ===== Sections / Categories ===== */
-
+/* =========================
+   Sections / Categories
+   ========================= */
 main {
   margin-top: 0.25rem;
 }
@@ -239,13 +246,12 @@ main {
   background: #7f0f0f; /* Christmas red */
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   padding: 0.7rem 0.9rem;
   border-radius: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* gap: 0.5rem; */
   cursor: pointer;
 }
 
@@ -254,7 +260,7 @@ main {
   font-family: 'Caviar Dreams', system-ui, sans-serif;
   font-size: 0.8rem;
   color: #fde68a;
-  margin-left: 0.25rem; /* small space between Punches and NA */
+  margin-left: 0.25rem;
 }
 
 /* Triangle caret icon */
@@ -270,13 +276,22 @@ main {
   transition: transform 0.25s ease;
 }
 
-/* Rotate arrow + reveal content when active */
+/* Rotate arrow when category is active */
 .drink-category.active .triangle {
   transform: rotate(0deg);
 }
 
-/* ===== Dropdown content ===== */
+/* Extra wrapper for h2 text + subtitles */
+.drink-category h2 p {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
 
+/* =========================
+   Dropdown Content
+   ========================= */
 .dropdown-content {
   display: none;
   background-color: #062925;
@@ -291,19 +306,13 @@ main {
   display: block;
 }
 
-.drink-category h2 p {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem; /* space between emoji and text */
-  flex-wrap: wrap; /* allows NA to wrap naturally on very small phones */
-}
-
-/* ===== Drink items ===== */
-
+/* =========================
+   Drink Items
+   ========================= */
 .drink {
   background: rgba(12, 20, 36, 0.55); /* frosted navy */
-  border: 1px solid rgba(255,255,255,0.06);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
   padding: 0.6rem 0.7rem;
   margin-bottom: 0.5rem;
   border-radius: 0.65rem;
@@ -327,14 +336,16 @@ main {
   color: #cbd5e1; /* silver blue */
 }
 
+/* Beers: hanging indent for wrapped lines */
 section#beers .drink p {
-  text-indent: -1.2em !important;      /* pulls the first line left */
-  padding-left: 1.2em !important;      /* pushes all lines right */
-  line-height: 1.4;         /* optional: nicer spacing */
+  text-indent: -1.2em !important;  /* pulls the first line left */
+  padding-left: 1.2em !important;  /* pushes all lines right */
+  line-height: 1.4;
 }
 
+/* Ingredients line under cocktails, etc. */
 .drink p.ingredients-line {
-  font-size: 0.7rem;   /* or whatever size feels right */
+  font-size: 0.7rem;
   font-style: italic;
   color: #d6e2ee; /* soft icy grey */
   margin-top: 0.25rem;
@@ -347,8 +358,9 @@ section#beers .drink p {
   margin-left: 1em;
 }
 
-
-/* Off-menu note */
+/* =========================
+   Intro / Off-menu Note
+   ========================= */
 .Introduction {
   font-family: 'Caviar Dreams', system-ui, sans-serif;
   font-size: 0.9rem;
@@ -359,13 +371,14 @@ section#beers .drink p {
   padding-top: 0.5rem;
 }
 
-/* ===== Footer ===== */
-
-.main{
+/* =========================
+   Footer / Closing Text
+   ========================= */
+.main {
   font-family: 'Caviar Dreams', system-ui, sans-serif;
   text-align: center;
   margin-top: 1.3rem;
-  font-size: 2.00rem;
+  font-size: 2rem;
   color: #fef3c7; /* soft gold */
   opacity: 0.9;
 }
@@ -374,8 +387,9 @@ section#beers .drink p {
   font-family: 'Last Christmas', system-ui, sans-serif;
 }
 
-/* ===== Tablet / Desktop tweaks ===== */
-
+/* =========================
+   Tablet / Desktop Tweaks
+   ========================= */
 @media (min-width: 768px) {
   body {
     padding: 1.4rem 1rem 2.4rem;
@@ -398,7 +412,6 @@ section#beers .drink p {
   .drink h3 {
     font-size: 1.15rem;
   }
-
 
   .drink p,
   .Introduction,
