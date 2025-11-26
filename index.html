@@ -15,7 +15,7 @@
   </div> -->
   
   <header>
-    <h2>V1.11</h2>
+    <h2>V1.12</h2>
     <h1>Christmas <br>Sips & Spirits</h1>
     <p class="mixologists">
       <span class="mixologists-title">Holiday Cheer Alchemists:</span><br>
@@ -47,7 +47,7 @@
       <h2>Specialty Cocktails<span class="triangle"></span></h2>
       <div class="dropdown-content">
         <div class="drink">
-          <h3>Elf-Made Exclusive</h3>
+          <h3 class="Exclude-Drink">Elf-Made Exclusive</h3>
           <p>A festive, made-to-order cocktail crafted exactly to your holiday tastes—something special just for you and not on the menu.</p>
         </div>
         <div class="drink">
@@ -288,12 +288,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!cocktailsSection) return;
 
       // 🔥 Build list of drinks, EXCLUDING "Custom Cocktail"
-      const allDrinks = Array.from(cocktailsSection.querySelectorAll('.drink'));
-      const drinks = allDrinks.filter(drink => {
-        const titleEl = drink.querySelector('h3');
-        const title = titleEl ? titleEl.textContent.toLowerCase() : '';
-        return !title.includes('custom cocktail'); // exclude that one
-      });
+      const allDrinks = Array.from(cocktailsSection.querySelectorAll('.drink'))
+      .filter(drink => !drink.querySelector('.Exclude-Drink')); // exclude any with that class
+      const drinks = allDrinks;
 
       if (!drinks.length) return;
 
