@@ -216,7 +216,7 @@ header h1 {
   border-radius: 999px;
   cursor: pointer;
   text-align: center;
-  white-space: nowrap;
+  white-space: normal;
   text-overflow: ellipsis;
 }
 
