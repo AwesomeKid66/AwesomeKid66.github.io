@@ -223,9 +223,8 @@ header h1 {
 
 /* Active state for grid buttons */
 .nav-button-grid button.active {
-  background: #facc15;
   color: #4a2e00;
-  border-color: #fde047;
+  border-color: #facc15;
   box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.4);
 }
 
