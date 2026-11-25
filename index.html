@@ -6,8 +6,6 @@
   <meta name="description" content="Christmas Party Drink Menu">
   <title>Christmas Party Drink Menu</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Last+Christmas&display=swap" rel="stylesheet">
-
 </head>
 <body>
   <!-- <div class="logo-container">
@@ -15,6 +13,7 @@
   </div> -->
   
   <header>
+    <p class="version"><mark>V1.00</mark></p>
     <h1>Christmas <br>Sips & Spirits</h1>
     <p class="mixologists">
       <span class="mixologists-title">Christmas Spirit-ologists:</span><br>
@@ -22,72 +21,74 @@
     </p>
   </header>
 
-  <nav class="category-nav">
+  <nav class="category-nav" aria-label="Drink menu categories">
     <!-- Row 1: Centered Surprise Me -->
     <div class="nav-top-row">
-      <button type="button" id="random-cocktail-btn">🎲 Choose A Cocktail For Me!</button>
+      <button type="button" id="random-cocktail-btn">🎲 Choose a cocktail for me</button>
     </div>
 
     <!-- Row 2–3: The 6 regular category buttons -->
     <div class="nav-button-grid">
-      <button type="button" data-target="specialty-drinks">🍸 Cocktails</button>
-      <button type="button" data-target="punches">🫗 Non-Alcoholic</button>
-      <button type="button" data-target="beers">🍺 Beers</button>
-      <button type="button" data-target="Hard_Selzter">🫧 Seltzers</button>
-      <button type="button" data-target="mixers">⚗️ Sodas & Mixers</button>
-      <button type="button" data-target="wines">🍷 Wines</button>
+      <button type="button" data-target="specialty-drinks" aria-controls="specialty-drinks-content">🍸 Cocktails</button>
+      <button type="button" data-target="punches" aria-controls="punches-content">🫗 Non-alcoholic</button>
+      <button type="button" data-target="beers" aria-controls="beers-content">🍺 Beers</button>
+      <button type="button" data-target="hard-seltzers" aria-controls="seltzers-content">🫧 Seltzers</button>
+      <button type="button" data-target="mixers" aria-controls="mixers-content">⚗️ Sodas & Mixers</button>
+      <button type="button" data-target="wines" aria-controls="wines-content">🍷 Wines</button>
     </div>
   </nav>
 
+  <p class="sr-only" id="menu-status" aria-live="polite" aria-atomic="true"></p>
   
   <main>
-    <!-- Speciality Cocktails Section -->
+    <!-- Specialty Cocktails Section -->
     <section class="drink-category" id="specialty-drinks">
-      <h2>Specialty Cocktails<span class="triangle"></span></h2>
-      <div class="dropdown-content">
-        <div class="drink">
-          <h3 class="Exclude-Drink">Elf-Made Exclusive</h3>
-          <p>A festive, made-to-order cocktail crafted exactly to your holiday tastes—something special just for you and not on the menu.</p>
+      <h2><button class="category-toggle" type="button" aria-expanded="false" aria-controls="specialty-drinks-content">Specialty Cocktails<span class="triangle" aria-hidden="true"></span></button></h2>
+      <div class="dropdown-content" id="specialty-drinks-content">
+        <h3 class="subsection-heading">Cocktail Menu</h3>
+        <div class="drink-list cocktail-list">
+          <div class="drink cocktail">
+            <h4>Blackberry Mojito</h4>
+            <p>Blackberry, mint, lime, and soda make a bright, refreshing twist on the classic.</p>
+            <p class="ingredients-line"><strong>Ingredients:</strong> Blackberry, Mint, Lime, Soda</p>
+          </div>
+          <div class="drink cocktail">
+            <h4>Smokes Cinnamon Vanilla Manhattan</h4>
+            <p>A smooth, spirit-forward vanilla Manhattan. Ask for the optional cinnamon-smoked glass, or enjoy it without smoke.</p>
+            <p class="optional-note"><strong>Optional:</strong> Cinnamon-smoked glass</p>
+            <p class="ingredients-line"><strong>Ingredients:</strong> Bourbon, Bitters</p>
+          </div>
+          <div class="drink cocktail">
+            <h4>Dubai Chocolate Tequila Old Fashioned</h4>
+            <p>Tequila meets chocolate and cinnamon, with lime to balance this rich, dessert-like take on an Old Fashioned.</p>
+            <p class="ingredients-line"><strong>Ingredients:</strong> Tequila, Chocolate Syrup, Cinnamon, Lime Juice</p>
+          </div>
+          <div class="drink cocktail">
+            <h4>Gingerbread Russian</h4>
+            <p>Creamy vodka and coffee liqueur meet gingerbread spice for a dessert-like holiday drink.</p>
+            <p class="ingredients-line"><strong>Ingredients:</strong> Vodka, Kahlua, Gingerbread Syrup, Cream</p>
+          </div>
+          <div class="drink cocktail">
+            <h4>Pear Brandy Sour</h4>
+            <p>Pear, brandy, and lemon come together in a bright, balanced sour.</p>
+            <p class="ingredients-line"><strong>Ingredients:</strong> Pear, Brandy, Lemon Juice, Simple Syrup</p>
+          </div>
+          <div class="drink cocktail">
+            <h4>Pumpkin Mule</h4>
+            <p>A seasonal take on the Moscow Mule, with pumpkin spice, vodka, and ginger beer.</p>
+            <p class="ingredients-line"><strong>Ingredients:</strong> Vodka, Pumpkin Spice Syrup, Ginger Beer</p>
+          </div>
+          <div class="drink cocktail">
+            <h4>Rose Gimlet</h4>
+            <p>Bright gin, tart lime, and floral rose syrup topped with soda.</p>
+            <p class="ingredients-line"><strong>Ingredients:</strong> Gin, Rose Syrup, Lime, Soda</p>
+          </div>
         </div>
-        <div class="drink">
-          <h3>Rose Gimlet</h3>
-          <p>A bright, rosy refresher with a hint of floral cheer, perfect for keeping the holiday vibes merry and light!</p>
-          <p class="ingredients-line"><strong>Ingredients:</strong> Gin, Rose Syrup, Lime, Soda</p>
-        </div>
-        <div class="drink">
-          <h3>Dubai Chocolate Tequila Old Fashioned</h3>
-          <p>A rich, indulgent blend of chocolate and tequila with a hint of cinnamon, perfect for those who love a decadent holiday treat.</p>
-          <p class="ingredients-line"><strong>Ingredients:</strong> Tequila, Chocolate Syrup, Cinnamon, Lime Juice</p>
-        </div>
-        <div class="drink">
-          <h3>Gingerbread Russian</h3>
-          <p>A creamy, gingerbread-spiced indulgence that tastes like a holiday dessert in a glass.</p>
-          <p class="ingredients-line"><strong>Ingredients:</strong> Vodka, Kahlua, Gingerbread Syrup, Cream</p>
-        </div>
-        <div class="drink">
-          <h3>Blackberry Mohito</h3>
-          <p>A refreshing blend of blackberry and mint, perfect for a fruity holiday twist!</p>
-          <p class="ingredients-line"><strong>Ingredients:</strong> Blackberry, Mint, Lime, Soda</p>
-        </div>
-        <div class="drink">
-          <h3>Smokes cinnamon vanilla Manhattan</h3>
-          <p>(smoking optional) A smooth, spirit-forward treat infused with aromatic cinnamon smoke that brings instant winter-wonderland warmth.</p>
-          <p class="ingredients-line"><strong>Ingredients:</strong> Bourbon, Cinnamon Simple Syrup, Bitters, Cinnamon Smoked Glass</p>
-        </div>
-        <div class="drink">
-          <h3>Pear Brandy Sour</h3>
-          <p>A delightful blend of pear, brandy, and citrus, perfect for a sophisticated holiday sip!</p>
-          <p class="ingredients-line"><strong>Ingredients:</strong> Pear, Brandy, Lemon Juice, Simple Syrup</p>
-        </div>
-        <div class="drink">
-          <h3>Pumpkin mule</h3>
-          <p>A seasonal twist on a classic, perfect for adding some holiday cheer to your glass!</p>
-          <p class="ingredients-line"><strong>Ingredients:</strong> Vodka, Pumpkin Spice Syrup, Ginger Beer</p>
-        </div>
-        <div class="drink">
-          <h3>Mocktail Turned Cocktail</h3>
-          <p>All non-alcoholic drinks can be upgraded with a spirit of your choice—just tell us you want it <em><strong>naughty</strong></em>.</p>
-        </div>
+        <aside class="menu-note" aria-labelledby="cocktail-customization-title">
+          <h3 id="cocktail-customization-title">Make It Your Own</h3>
+          <p><strong>Off-menu:</strong> Ask for an Elf-Made Exclusive, crafted to your taste.</p>
+          <p><strong>Spirit upgrade:</strong> Any non-alcoholic drink can be made with a spirit of your choice. Ask for a “naughty” version.</p>
+        </aside>
       </div>
     </section>
 
@@ -95,20 +96,19 @@
 
     <!-- Punches Section -->
     <section class="drink-category" id="punches">
-      <h2>
-        <p>Non-Alcoholic Drinks</p>
-        <span class="triangle"></span>
-      </h2>
-      <div class="dropdown-content">
-        <div class="drink">
-          <h3>Cranberry Mojito</h3>
-          <p>A non-alcoholic, bright, bubbly blend of cranberry, mint, and lime that brings merry holiday cheer to every sip!</p>
-          <p class="ingredients-line"><strong>Ingredients:</strong> Cranberry, Mint, Lime, Soda</p>
-        </div>
-        <div class="drink">
-          <h3>Rosemary Lime-ade</h3>
-          <p>A vibrant blend of lime and rosemary that’s deliciously refreshing, totally non-alcoholic, and perfect for holiday sipping.</p>
-          <p class="ingredients-line"><strong>Ingredients:</strong> Rosemary, Lime, Lemon, Soda</p>
+      <h2><button class="category-toggle" type="button" aria-expanded="false" aria-controls="punches-content">Non-Alcoholic Drinks<span class="triangle" aria-hidden="true"></span></button></h2>
+      <div class="dropdown-content" id="punches-content">
+        <div class="drink-list">
+          <div class="drink">
+            <h3>Cranberry Mojito</h3>
+            <p>Cranberry, mint, lime, and soda make a bright, bubbly alcohol-free take on a Mojito.</p>
+            <p class="ingredients-line"><strong>Ingredients:</strong> Cranberry, Mint, Lime, Soda</p>
+          </div>
+          <div class="drink">
+            <h3>Rosemary Lime-ade</h3>
+            <p>Fresh citrus and rosemary make a crisp, herbal alcohol-free refresher.</p>
+            <p class="ingredients-line"><strong>Ingredients:</strong> Rosemary, Lime, Lemon, Soda</p>
+          </div>
         </div>
       </div>
     </section>
@@ -118,60 +118,69 @@
     
     <!-- Beers Section -->
     <section class="drink-category" id="beers">
-      <h2>Beers<span class="triangle"></span></h2>
-      <div class="dropdown-content">
-
-        <div class="drink">
-          <h3>Lager</h3>
-          <p>-Miller Lite (4.2%)</p>
-          <p>-Zywiec (5.6%)</p>
+      <h2><button class="category-toggle" type="button" aria-expanded="false" aria-controls="beers-content">Beers<span class="triangle" aria-hidden="true"></span></button></h2>
+      <div class="dropdown-content" id="beers-content">
+        <div class="drink-list beer-list">
+          <div class="drink">
+            <h3>Lager</h3>
+            <ul class="option-list">
+              <li>Miller Lite <span class="beer-details">(4.2%)</span></li>
+              <li>Zywiec <span class="beer-details">(5.6%)</span></li>
+            </ul>
+          </div>
+          <div class="drink">
+            <h3>Hefeweizen</h3>
+            <ul class="option-list">
+              <li>HumpenScrump — Pollyanna <span class="beer-details">(5.2%)</span></li>
+            </ul>
+          </div>
+          <div class="drink">
+            <h3>Amber</h3>
+            <ul class="option-list">
+              <li>Amber Ale — Bell’s Brewery <span class="beer-details">(5.8%)</span></li>
+              <li>Evergreen Amber IPA — Music Ales (Homebrew) <span class="beer-details">(6.1%)</span></li>
+            </ul>
+          </div>
+          <div class="drink">
+            <h3>IPA</h3>
+            <ul class="option-list">
+              <li>Zombie Dust — Three Floyds Brewing <span class="beer-details">(6.2%)</span></li>
+              <li>Lagunitas IPA <span class="beer-details">(6.2%)</span></li>
+            </ul>
+          </div>
+          <div class="drink">
+            <h3>High-ABV & Specialty</h3>
+            <ul class="option-list">
+              <li>Backwoods Bastard — Founders (Ale, 11.0%)</li>
+              <li>Orin — Half Acre (Ale, 13.2%)</li>
+              <li>Sticky Date — Music Ales (Homebrew, Barleywine, 12.0%)</li>
+              <li>Before Land Shook — Half Acre (Stout, 15.0%)</li>
+              <li>Dragon’s Milk — New Holland (Stout, 11.0%)</li>
+              <li>Dragon’s Milk Reserve Coconut Rum Barrel — New Holland (Stout, 11.0%)</li>
+              <li>Kentucky Breakfast Hazelnut Fudge — Founders (Stout, 11.0%)</li>
+              <li>Peanut Butter Cuppa — Maplewood (Stout, 11.0%)</li>
+            </ul>
+          </div>
         </div>
-        
-        <div class="drink">
-          <h3>Hefewiezen</h3>
-          <p>-HumpenScrump — Pollyanna (5.2%)</p>
-        </div>
-
-        <div class="drink">
-          <h3>Amber</h3>
-          <p>-Amber Ale — Bell's Brewery (5.8%)</p>
-          <p>-Evergreen Amber IPA — Music Ales (Homebrew) (6.1%)</p>
-        </div>
-
-        <div class="drink">
-          <h3>IPA</h3>
-          <p>-Zombie Dust — Three Floyds Brewing (6.2%)</p>
-          <p>-Lagunitas — Lagunitas (6.2%)</p>
-        </div>
-
-        <div class="drink">
-          <h3>Barrel Aged / Imperial Stout</h3>
-          <p>-Backwoods Bastard - Founders (Ale - 11.0%)</p>
-          <p>-Orin — Half Acre (Ale - 13.2%)</p>
-          <p>-Sticky Date — Music Ales (Homebrew) (Barleywine - 12.0%)</p>
-          <p>-Before Land Shook — Half Acre (Stout - 15.0%)</p>
-          <p>-Dragon's Milk — New Holland (Stout - 11.0%)</p>
-          <p>-Dragon's Milk Reserve Coconut Rum Barrel — New Holland (Stout - 11.0%)</p>
-          <p>-Kentucky Breakfast Hazelnut Fudge — Founders (Stout - 11.0%)</p>
-          <p>-Peanut Butter Cuppa — Maplewood (Stout - 11.0%)</p>
-        </div>
-
       </div>
     </section>
 
 
 
     <!-- Hard Selzter Section -->
-    <section class="drink-category" id="Hard_Selzter">
-      <h2>Hard Seltzer<span class="triangle"></span></h2>
-      <div class="dropdown-content">
+    <section class="drink-category" id="hard-seltzers">
+      <h2><button class="category-toggle" type="button" aria-expanded="false" aria-controls="seltzers-content">Hard Seltzers<span class="triangle" aria-hidden="true"></span></button></h2>
+      <div class="dropdown-content" id="seltzers-content">
         <div class="drink">
-          <h3>-Lime</h3>
-          <h3>-Mango</h3>
-          <h3>-Raspberry</h3>
-          <h3>-Black Cherry</h3>
-          <h3>-Grapefruit</h3>
-          <h3>-Ruby Grapefruit</h3>
+          <h3>Available Flavors</h3>
+          <ul class="option-list option-list--compact">
+            <li>Lime</li>
+            <li>Mango</li>
+            <li>Raspberry</li>
+            <li>Black Cherry</li>
+            <li>Grapefruit</li>
+            <li>Ruby Grapefruit</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -180,28 +189,45 @@
 
     <!-- Mixers Section -->
     <section class="drink-category" id="mixers">
-      <h2>Sodas & Mixers<span class="triangle"></span></h2>
-      <div class="dropdown-content">
-        <div class="drink">
-          <h3>-Coke</h3>
-          <h3>-Diet Coke</h3>
-          <h3>-Ginger Ale</h3>
-          <h3>-Ginger Beer</h3>
-          <h3>-Sprite</h3>
-          <h3>-Diet Pepsi</h3>
-          <h3>-Seltzer/Club Soda</h3>
-          <h3>-Cranberry Juice</h3>
+      <h2><button class="category-toggle" type="button" aria-expanded="false" aria-controls="mixers-content">Sodas & Mixers<span class="triangle" aria-hidden="true"></span></button></h2>
+      <div class="dropdown-content" id="mixers-content">
+        <div class="drink-list option-groups">
+          <div class="drink">
+            <h3>Sodas</h3>
+            <ul class="option-list">
+              <li>Coke</li>
+              <li>Diet Coke</li>
+              <li>Sprite</li>
+              <li>Diet Pepsi</li>
+            </ul>
+          </div>
+          <div class="drink">
+            <h3>Mixers</h3>
+            <ul class="option-list">
+              <li>Ginger Ale</li>
+              <li>Ginger Beer</li>
+              <li>Seltzer / Club Soda</li>
+            </ul>
+          </div>
+          <div class="drink">
+            <h3>Juice</h3>
+            <ul class="option-list">
+              <li>Cranberry Juice</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Wine Section -->
     <section class="drink-category" id="wines">
-      <h2>Wines<span class="triangle"></span></h2>
-      <div class="dropdown-content">
+      <h2><button class="category-toggle" type="button" aria-expanded="false" aria-controls="wines-content">Wines<span class="triangle" aria-hidden="true"></span></button></h2>
+      <div class="dropdown-content" id="wines-content">
         <div class="drink">
-          <h3>-Red</h3>
-          <h3>-White</h3>
+          <ul class="option-list option-list--compact">
+            <li>Red wine</li>
+            <li>White wine</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -211,13 +237,12 @@
   <footer>
     <p class="main">We wish you a <br><strong>MERRY CHRISTMAS</strong><br> and a <br><strong>PROSPEROUS NEW YEAR!</strong><br><span class="family-name">- The Okrzesik Family</span></p>
   </footer>
-</body>
-</html>
-
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const categories = Array.from(document.querySelectorAll('.drink-category'));
   const navButtons = Array.from(document.querySelectorAll('.category-nav button'));
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
 
   let suppressScrollHighlight = false; // ignore scroll highlight during smooth scroll from nav
 
@@ -227,16 +252,28 @@ document.addEventListener('DOMContentLoaded', () => {
     navButtons.forEach(btn => {
       const t = btn.getAttribute('data-target');
       btn.classList.toggle('active', targetId && t === targetId);
+      if (targetId && t === targetId) {
+        btn.setAttribute('aria-current', 'location');
+      } else {
+        btn.removeAttribute('aria-current');
+      }
     });
   }
 
-  // Toggle sections when their headers are tapped
-  categories.forEach(section => {
-    const h2 = section.querySelector('h2');
-    if (!h2) return;
+  function setCategoryOpen(section, isOpen) {
+    section.classList.toggle('active', isOpen);
+    const toggle = section.querySelector('.category-toggle');
+    if (toggle) toggle.setAttribute('aria-expanded', String(isOpen));
+  }
 
-    h2.addEventListener('click', () => {
-      const nowActive = section.classList.toggle('active');
+  // Toggle sections when their headers are activated
+  categories.forEach(section => {
+    const toggle = section.querySelector('.category-toggle');
+    if (!toggle) return;
+
+    toggle.addEventListener('click', () => {
+      const nowActive = !section.classList.contains('active');
+      setCategoryOpen(section, nowActive);
       const id = section.id;
 
       if (nowActive && id) {
@@ -261,10 +298,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       suppressScrollHighlight = true; // don't let scroll fight the highlight
 
-      targetSection.classList.add('active'); // make sure it's open
+      setCategoryOpen(targetSection, true);
       setActiveNav(targetId);
 
-      targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      targetSection.scrollIntoView({ behavior: scrollBehavior, block: 'start' });
 
       // Re-enable scroll-based highlighting after the smooth scroll is basically done
       setTimeout(() => {
@@ -284,22 +321,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const cocktailsSection = document.getElementById('specialty-drinks');
       if (!cocktailsSection) return;
 
-      // 🔥 Build list of drinks, EXCLUDING "Custom Cocktail"
-      const allDrinks = Array.from(cocktailsSection.querySelectorAll('.drink'))
-      .filter(drink => !drink.querySelector('.Exclude-Drink')); // exclude any with that class
-      const drinks = allDrinks;
+      const drinks = Array.from(cocktailsSection.querySelectorAll('.cocktail'));
 
       if (!drinks.length) return;
 
       isRolling = true;
       suppressScrollHighlight = true;
+      const status = document.getElementById('menu-status');
+      if (status) status.textContent = 'Choosing a cocktail.';
 
       // Make sure cocktails is open + nav highlighted
-      cocktailsSection.classList.add('active');
+      setCategoryOpen(cocktailsSection, true);
       setActiveNav('specialty-drinks');
 
       // Center the cocktails section before starting roulette
-      cocktailsSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      cocktailsSection.scrollIntoView({ behavior: scrollBehavior, block: 'center' });
 
       // Clear previous highlights/rolling
       document
@@ -307,6 +343,20 @@ document.addEventListener('DOMContentLoaded', () => {
         .forEach(el => {
           el.classList.remove('highlight-choice', 'rolling-choice');
         });
+
+      if (prefersReducedMotion) {
+        const finalDrink = drinks[Math.floor(Math.random() * drinks.length)];
+        const chosenCocktail = finalDrink.querySelector('h4')?.textContent?.trim();
+        if (status && chosenCocktail) status.textContent = `Your cocktail: ${chosenCocktail}.`;
+        finalDrink.classList.add('highlight-choice');
+        finalDrink.scrollIntoView({ behavior: 'auto', block: 'center' });
+        setTimeout(() => {
+          finalDrink.classList.remove('highlight-choice');
+          suppressScrollHighlight = false;
+          isRolling = false;
+        }, 2000);
+        return;
+      }
 
       let currentIndex = -1;
       let ticks = 0;
@@ -331,12 +381,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // If we reached the end, finalize the chosen drink
         if (ticks >= totalTicks) {
           const finalDrink = drinks[currentIndex];
+          const chosenCocktail = finalDrink.querySelector('h4')?.textContent?.trim();
+          if (status && chosenCocktail) status.textContent = `Your cocktail: ${chosenCocktail}.`;
 
           // Stop rolling highlight
           finalDrink.classList.remove('rolling-choice');
 
           // Scroll the chosen drink into view
-          finalDrink.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          finalDrink.scrollIntoView({ behavior: scrollBehavior, block: 'center' });
 
           // 🔥 NEW — triple final flash
           let flashCount = 0;
@@ -424,3 +476,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+</body>
+</html>
