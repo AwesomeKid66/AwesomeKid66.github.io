@@ -27,9 +27,10 @@
       <button type="button" id="random-cocktail-btn">🎲 Choose a cocktail for me</button>
     </div>
 
-    <!-- Row 2–3: The 6 regular category buttons -->
+    <!-- Category buttons -->
     <div class="nav-button-grid">
       <button type="button" data-target="specialty-drinks" aria-controls="specialty-drinks-content">🍸 Cocktails</button>
+      <button type="button" data-target="family-special" aria-controls="family-special-content">🎁 Family Special</button>
       <button type="button" data-target="punches" aria-controls="punches-content">🫗 Non-alcoholic</button>
       <button type="button" data-target="beers" aria-controls="beers-content">🍺 Beers</button>
       <button type="button" data-target="hard-seltzers" aria-controls="seltzers-content">🫧 Seltzers</button>
@@ -54,7 +55,7 @@
           </div>
           <div class="drink cocktail">
             <h4>Smoked Cinnamon Vanilla Manhattan</h4>
-            <p>A smooth, spirit-forward vanilla Manhattan.</p>
+            <p>A smooth, spirit-forward Manhattan with a warm vanilla finish.</p>
             <p class="optional-note"><strong>Optional:</strong> Cinnamon-smoked glass</p>
             <p class="ingredients-line"><strong>Ingredients:</strong> Bourbon, Bitters</p>
           </div>
@@ -92,6 +93,17 @@
       </div>
     </section>
 
+    <section class="drink-category" id="family-special">
+      <h2><button class="category-toggle" type="button" aria-expanded="false" aria-controls="family-special-content">Family Special<span class="triangle" aria-hidden="true"></span></button></h2>
+      <div class="dropdown-content" id="family-special-content">
+        <div class="drink-list">
+          <div class="drink">
+            <h3>Candy Cane Malört Shot</h3>
+            <p>Malört infused with candy cane.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
     <!-- Punches Section -->
