@@ -13,7 +13,7 @@
   </div> -->
   
   <header>
-    <p class="version"><mark>V1.10</mark></p>
+    <p class="version"><mark>V1.11</mark></p>
     <h1>Christmas <br>Sips & Spirits</h1>
     <p class="mixologists">
       <span class="mixologists-title">Christmas Spirit-ologists:</span><br>
@@ -30,10 +30,10 @@
     <!-- Category buttons -->
     <div class="nav-button-grid">
       <button type="button" data-target="specialty-drinks" aria-controls="specialty-drinks-content">🍸 Cocktails</button>
-      <button type="button" data-target="punches" aria-controls="punches-content">🫗 Non-alcoholic</button>
+      <button type="button" data-target="punches" aria-controls="punches-content">🧃 Non-alcoholic</button>
       <button type="button" data-target="beers" aria-controls="beers-content">🍺 Beers</button>
       <button type="button" data-target="hard-seltzers" aria-controls="seltzers-content">🫧 Seltzers</button>
-      <button type="button" data-target="mixers" aria-controls="mixers-content">⚗️ Sodas & Mixers</button>
+      <button type="button" data-target="mixers" aria-controls="mixers-content">🥤 Sodas & Mixers</button>
       <button type="button" data-target="wines" aria-controls="wines-content">🍷 Wines</button>
     </div>
   </nav>
@@ -84,11 +84,11 @@
             <p class="ingredients-line"><strong>Ingredients:</strong> Gin, Rose Syrup, Lime, Soda</p>
           </div>
         </div>
-        <div class="drink-list">
-          <div class="drink">
-            <h4>Candy Cane-Infused Malört Shot</h4>
-            <p class="optional-note"><strong>Not a cocktail</strong></p>
-          </div>
+        <button class="secret-shot-toggle" type="button" id="secret-shot-toggle" aria-expanded="false" aria-controls="candy-cane-malort-shot">🎁 Tap to reveal Santa's Secret Shot</button>
+        <div class="drink secret-shot" id="candy-cane-malort-shot" hidden>
+          <h4>Candy Cane-Infused Malört Shot</h4>
+          <p>A bold shot of classic Malört with a merry twist of candy cane.</p>
+          <p class="ingredients-line"><strong>Ingredients:</strong> Malört, Candy Cane</p>
         </div>
         <aside class="menu-note" aria-labelledby="cocktail-customization-title">
           <h3 id="cocktail-customization-title">Make It Your Own</h3>
@@ -396,6 +396,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Start the roulette
       spin();
+    });
+  }
+
+  const secretShotToggle = document.getElementById('secret-shot-toggle');
+  const secretShot = document.getElementById('candy-cane-malort-shot');
+
+  if (secretShotToggle && secretShot) {
+    secretShotToggle.addEventListener('click', () => {
+      const isExpanded = secretShotToggle.getAttribute('aria-expanded') === 'true';
+      secretShot.hidden = isExpanded;
+      secretShotToggle.setAttribute('aria-expanded', String(!isExpanded));
+      secretShotToggle.textContent = isExpanded ? '🎁 Tap to reveal Santa\'s Secret Shot' : '🎁 Hide Santa\'s Secret Shot';
+
+      if (!isExpanded) {
+        secretShot.scrollIntoView({ behavior: scrollBehavior, block: 'nearest' });
+      }
     });
   }
 

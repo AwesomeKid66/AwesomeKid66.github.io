@@ -368,6 +368,31 @@ main {
   border-radius: 0.65rem;
 }
 
+.secret-shot-toggle {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin: 0.7rem 0;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #facc15;
+  border-radius: 0.65rem;
+  background: #14532d;
+  color: #fef9c3;
+  font-family: 'Caviar Dreams', system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secret-shot-toggle:hover {
+  background: #166534;
+}
+
+.secret-shot-toggle:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
 .drink h3,
 .drink h4 {
   font-family: 'Caviar Dreams', system-ui, sans-serif;
