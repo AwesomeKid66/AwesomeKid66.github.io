@@ -462,6 +462,13 @@ main {
   color: #e2e8f0;
 }
 
+.abv {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: normal;
+  white-space: nowrap;
+}
+
 .drink .optional-note {
   display: inline-block;
   margin-top: 0.35rem;
