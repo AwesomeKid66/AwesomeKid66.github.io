@@ -28,7 +28,7 @@
    Base Layout (Phone-first)
    ========================= */
 html {
-  scroll-padding-top: 12rem;
+  scroll-padding-top: 12.5rem;
   scroll-behavior: smooth;
 }
 
@@ -271,7 +271,6 @@ main {
 
 .drink-category {
   margin-bottom: 1.2rem;
-  scroll-margin-top: 12rem;
 }
 
 /* Header bar for each category */
