@@ -352,7 +352,6 @@ main {
 }
 
 .cocktail-list,
-.beer-list,
 .option-groups {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
 }
@@ -437,7 +436,6 @@ main {
 
 .beer-details {
   color: #e2e8f0;
-  white-space: nowrap;
 }
 
 .drink .optional-note {

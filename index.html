@@ -13,7 +13,7 @@
   </div> -->
   
   <header>
-    <p class="version"><mark>V1.00</mark></p>
+    <p class="version"><mark>V1.10</mark></p>
     <h1>Christmas <br>Sips & Spirits</h1>
     <p class="mixologists">
       <span class="mixologists-title">Christmas Spirit-ologists:</span><br>
@@ -30,7 +30,6 @@
     <!-- Category buttons -->
     <div class="nav-button-grid">
       <button type="button" data-target="specialty-drinks" aria-controls="specialty-drinks-content">🍸 Cocktails</button>
-      <button type="button" data-target="family-special" aria-controls="family-special-content">🎁 Family Special</button>
       <button type="button" data-target="punches" aria-controls="punches-content">🫗 Non-alcoholic</button>
       <button type="button" data-target="beers" aria-controls="beers-content">🍺 Beers</button>
       <button type="button" data-target="hard-seltzers" aria-controls="seltzers-content">🫧 Seltzers</button>
@@ -56,8 +55,8 @@
           <div class="drink cocktail">
             <h4>Smoked Cinnamon Vanilla Manhattan</h4>
             <p>A smooth, spirit-forward Manhattan with a warm vanilla finish.</p>
-            <p class="optional-note"><strong>Optional:</strong> Cinnamon-smoked glass</p>
             <p class="ingredients-line"><strong>Ingredients:</strong> Bourbon, Bitters</p>
+            <p class="optional-note"><strong>Optional:</strong> Cinnamon-smoked glass</p>
           </div>
           <div class="drink cocktail">
             <h4>Dubai Chocolate Tequila Old Fashioned</h4>
@@ -85,6 +84,12 @@
             <p class="ingredients-line"><strong>Ingredients:</strong> Gin, Rose Syrup, Lime, Soda</p>
           </div>
         </div>
+        <div class="drink-list">
+          <div class="drink">
+            <h4>Candy Cane-Infused Malört Shot</h4>
+            <p class="optional-note"><strong>Not a cocktail</strong></p>
+          </div>
+        </div>
         <aside class="menu-note" aria-labelledby="cocktail-customization-title">
           <h3 id="cocktail-customization-title">Make It Your Own</h3>
           <p><strong>Off-menu:</strong> Ask for an Elf-Made Exclusive, crafted to your taste.</p>
@@ -92,19 +97,6 @@
         </aside>
       </div>
     </section>
-
-    <section class="drink-category" id="family-special">
-      <h2><button class="category-toggle" type="button" aria-expanded="false" aria-controls="family-special-content">Family Special<span class="triangle" aria-hidden="true"></span></button></h2>
-      <div class="dropdown-content" id="family-special-content">
-        <div class="drink-list">
-          <div class="drink">
-            <h3>Candy Cane Malört Shot</h3>
-            <p>Malört infused with candy cane.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
 
     <!-- Punches Section -->
     <section class="drink-category" id="punches">
@@ -127,66 +119,40 @@
     <section class="drink-category" id="beers">
       <h2><button class="category-toggle" type="button" aria-expanded="false" aria-controls="beers-content">Beers<span class="triangle" aria-hidden="true"></span></button></h2>
       <div class="dropdown-content" id="beers-content">
-        <div class="drink-list beer-list">
-          <div class="drink">
-            <h3>Lager</h3>
-            <ul class="option-list">
-              <li>Miller Lite <span class="beer-details">(4.2%)</span></li>
-              <li>Zywiec <span class="beer-details">(5.6%)</span></li>
-            </ul>
-          </div>
-          <div class="drink">
-            <h3>Hefeweizen</h3>
-            <ul class="option-list">
-              <li>HumpenScrump — Pollyanna <span class="beer-details">(5.2%)</span></li>
-            </ul>
-          </div>
-          <div class="drink">
-            <h3>Amber</h3>
-            <ul class="option-list">
-              <li>Amber Ale — Bell’s Brewery <span class="beer-details">(5.8%)</span></li>
-              <li>Evergreen Amber IPA — Music Ales (Homebrew) <span class="beer-details">(6.1%)</span></li>
-            </ul>
-          </div>
-          <div class="drink">
-            <h3>IPA</h3>
-            <ul class="option-list">
-              <li>Zombie Dust — Three Floyds Brewing <span class="beer-details">(6.2%)</span></li>
-              <li>Lagunitas IPA <span class="beer-details">(6.2%)</span></li>
-            </ul>
-          </div>
-          <div class="drink">
-            <h3>High-ABV & Specialty</h3>
-            <ul class="option-list">
-              <li>Backwoods Bastard — Founders (Ale, 11.0%)</li>
-              <li>Orin — Half Acre (Ale, 13.2%)</li>
-              <li>Sticky Date — Music Ales (Homebrew, Barleywine, 12.0%)</li>
-              <li>Before Land Shook — Half Acre (Stout, 15.0%)</li>
-              <li>Dragon’s Milk — New Holland (Stout, 11.0%)</li>
-              <li>Dragon’s Milk Reserve Coconut Rum Barrel — New Holland (Stout, 11.0%)</li>
-              <li>Kentucky Breakfast Hazelnut Fudge — Founders (Stout, 11.0%)</li>
-              <li>Peanut Butter Cuppa — Maplewood (Stout, 11.0%)</li>
-            </ul>
-          </div>
+        <div class="drink">
+          <h3>Beer Selection</h3>
+          <ul class="option-list">
+            <li>Anti-Hero <span class="beer-details">— India Pale Ale, 6.7% ABV</span></li>
+            <li>Dark Lord XXX (2026) <span class="beer-details">— Bourbon Barrel-Aged Imperial Stout, 14.5% ABV</span></li>
+            <li>Deth’s Tar (2026) <span class="beer-details">— Bourbon Barrel-Aged Imperial Oatmeal Stout, 14.8% ABV</span></li>
+            <li>Great Lakes Christmas Ale <span class="beer-details">— Winter Warmer, 7.5% ABV</span></li>
+            <li>Heineken <span class="beer-details">— Pale Lager, 5.0% ABV</span></li>
+            <li>Lagunitas IPA <span class="beer-details">— India Pale Ale, 6.2% ABV</span></li>
+            <li>Miller Lite <span class="beer-details">— American Pilsner, 4.2% ABV</span></li>
+            <li>Rye Da Tiger <span class="beer-details">— Rye IPA, 7.5% ABV</span></li>
+            <li>Shiner Bock <span class="beer-details">— American-style Amber Lager, 4.4% ABV</span></li>
+            <li>Space Dust <span class="beer-details">— India Pale Ale, 8.2% ABV</span></li>
+            <li>Turbo Reaper <span class="beer-details">— West Coast IPA, 7.0% ABV</span></li>
+            <li>Zombie Dust <span class="beer-details">— American Pale Ale, 6.5% ABV</span></li>
+            <li>Żywiec <span class="beer-details">— Polish Pale Lager, 5.6% ABV</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
 
 
-    <!-- Hard Selzter Section -->
+    <!-- Hard Seltzer Section -->
     <section class="drink-category" id="hard-seltzers">
       <h2><button class="category-toggle" type="button" aria-expanded="false" aria-controls="seltzers-content">Hard Seltzers<span class="triangle" aria-hidden="true"></span></button></h2>
       <div class="dropdown-content" id="seltzers-content">
         <div class="drink">
           <h3>Available Flavors</h3>
           <ul class="option-list option-list--compact">
+            <li>Black Cherry</li>
+            <li>Raspberry</li>
             <li>Lime</li>
             <li>Mango</li>
-            <li>Raspberry</li>
-            <li>Black Cherry</li>
-            <li>Grapefruit</li>
-            <li>Ruby Grapefruit</li>
           </ul>
         </div>
       </div>
@@ -204,22 +170,18 @@
             <ul class="option-list">
               <li>Coke</li>
               <li>Diet Coke</li>
-              <li>Sprite</li>
               <li>Diet Pepsi</li>
+              <li>LaCroix</li>
+              <li>Pepsi</li>
+              <li>Sprite</li>
+              <li>Squirt</li>
             </ul>
           </div>
           <div class="drink">
             <h3>Mixers</h3>
             <ul class="option-list">
-              <li>Ginger Ale</li>
               <li>Ginger Beer</li>
-              <li>Seltzer / Club Soda</li>
-            </ul>
-          </div>
-          <div class="drink">
-            <h3>Juice</h3>
-            <ul class="option-list">
-              <li>Cranberry Juice</li>
+              <li>Tonic Water</li>
             </ul>
           </div>
         </div>
@@ -232,8 +194,10 @@
       <div class="dropdown-content" id="wines-content">
         <div class="drink">
           <ul class="option-list option-list--compact">
-            <li>Red wine</li>
-            <li>White wine</li>
+            <li>Red</li>
+            <li>Rosé</li>
+            <li>White</li>
+            <li>Prosecco</li>
           </ul>
         </div>
       </div>
